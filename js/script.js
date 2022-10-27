@@ -55,3 +55,27 @@ const posts = [
       "created": "2021-03-05"
   }
 ];
+
+const container = document.querySelector('.min-container');
+
+
+posts.forEach(post =>{
+
+  let box = `
+      <div class="container-box">
+        <div class="container-inside">
+          <div class="cont-profile">
+            <div class="photo">${post.author.image}</div>
+            <div class="name">${post.author.name}</div>
+          </div>
+          <div class="comment">${post.content}</div>
+          <div class="image">${post.media}</div>
+          <div class="cont-like">
+            <div class="like">Mi Piace</div>
+            <div class="like-people">Piace a 8 persone</div>
+          </div>
+        </div>
+      </div>`;
+
+      container.innerHTML = box
+})
