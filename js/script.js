@@ -56,26 +56,42 @@ const posts = [
   }
 ];
 
-const container = document.querySelector('.min-container');
+const container = document.querySelector('#container');
 
 
 posts.forEach(post =>{
 
   let box = `
-      <div class="container-box">
-        <div class="container-inside">
-          <div class="cont-profile">
-            <div class="photo">${post.author.image}</div>
-            <div class="name">${post.author.name}</div>
+  <div class="post">
+  <div class="post__header">
+      <div class="post-meta">                    
+          <div class="post-meta__icon">
+              <img class="profile-pic" src="${post.author.image}" alt="${post.author.name}">                    
           </div>
-          <div class="comment">${post.content}</div>
-          <div class="image">${post.media}</div>
-          <div class="cont-like">
-            <div class="like">Mi Piace</div>
-            <div class="like-people">Piace a 8 persone</div>
+          <div class="post-meta__data">
+              <div class="post-meta__author">${post.author.name}</div>
+              <div class="post-meta__time">${post.created}</div>
+          </div>                    
+      </div>
+  </div>
+  <div class="post__text">${post.content}</div>
+  <div class="post__image">
+      <img src="${post.media}" alt="">
+  </div>
+  <div class="post__footer">
+      <div class="likes js-likes">
+          <div class="likes__cta">
+              <a class="like-button  js-like-button" href="#" data-postid="1">
+                  <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                  <span class="like-button__label">Mi Piace</span>
+              </a>
           </div>
-        </div>
-      </div>`;
+          <div class="likes__counter">
+              Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+          </div>
+      </div> 
+  </div>            
+</div>`;
 
-      container.innerHTML = box
+  container.innerHTML += box;
 })
